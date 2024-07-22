@@ -1,0 +1,45 @@
+.btn {
+  align-items: center;
+  background-color: blue;
+  border: 0;
+  border-radius: 2px;
+  color: white;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 14px;
+  min-height: 44px;
+  padding: 0 24px;
+  text-align: center;
+  transition: background-color, opacity 0.3s ease, color 0.3s ease;
+  vertical-align: top;
+  border-radius: 5px;
+  cursor: pointer;
+  &:active {
+    background-color: aqua;
+    color: black;
+  }
+  &:hover {
+    opacity: 0.5;
+  }
+  &[disabled] {
+    background-color: rgba(aqua, 0.3);
+    color: white;
+    pointer-events: none;
+  }
+
+  &.withImage {
+    padding: 0;
+    background: transparent;
+    min-height: fit-content;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    &:active {
+      opacity: 0.3;
+    }
+  }
+}

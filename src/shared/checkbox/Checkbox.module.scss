@@ -1,0 +1,42 @@
+.checkbox {
+  align-items: center;
+  border-bottom: 1px solid rgba(white, 0.3);
+  display: flex;
+  width: fit-content;
+  &__label {
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid #064273;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    width: 24px;
+
+    svg {
+      transform: scale(0);
+      transition: transform 0.1s ease-out;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + .checkbox__label {
+      background-color: #064273;
+    }
+
+    &:checked + .checkbox__label svg {
+      transform: scale(1);
+    }
+  }
+
+  &__description {
+    color: #202020;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22.5px;
+    user-select: none;
+  }
+}
