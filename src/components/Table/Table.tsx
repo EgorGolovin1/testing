@@ -63,6 +63,7 @@ export const Table = () => {
   const openEditMenu = () => {
     setOpenEditMenu(true);
   };
+
   return (
     <>
       <div ref={$table} className={css.wrapper}>
