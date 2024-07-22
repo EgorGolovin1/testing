@@ -49,6 +49,7 @@
   .name {
     white-space: normal;
     width: calc(100% - 70px - 30px);
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -59,6 +60,7 @@
 .address {
   min-width: 35%;
   max-width: 35%;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;

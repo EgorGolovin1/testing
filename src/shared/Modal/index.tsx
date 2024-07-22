@@ -1,7 +1,7 @@
 import css from "./Modal.module.scss";
 import Portal from "../Portal";
 
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import useAnimatePortal from "../hooks/useAnimatePortal";
 import cn from "classnames";
 
