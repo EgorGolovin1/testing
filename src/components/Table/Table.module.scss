@@ -56,15 +56,8 @@
   position: absolute;
   top: 50px;
   left: 0;
-
+  padding-left: 20px;
   label {
     margin-right: 10px;
   }
-}
-
-.popupInner {
-  display: flex;
-  width: 500px;
-  height: 100vh;
-  background: red;
 }
