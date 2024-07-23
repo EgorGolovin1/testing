@@ -1,3 +1,7 @@
+Для проверки задания, прошу выполнить следующие команды:
+1) json-server --watch chunkMockData.json --port 3300
+2) Во втором терминале yarn dev
+   
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
