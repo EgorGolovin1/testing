@@ -1,5 +1,5 @@
 Для проверки задания, прошу выполнить следующие команды:
-1) yarn && json-server --watch chunkMockData.json --port 3300
+1) yarn && npx json-server --watch chunkMockData.json --port 3300
 2) Во втором терминале yarn dev
    
 # React + TypeScript + Vite
