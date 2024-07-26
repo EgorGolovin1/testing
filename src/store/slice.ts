@@ -23,6 +23,10 @@ const layout = createSlice({
         ...action.payload,
       });
       state.items.reverse();
+      if (state.checkAll) {
+        state.items.map((item) => (item.checked = false));
+        state.checkAll = false;
+      }
     },
     checkAll: (state, action) => {
       if (action.payload === "unset") {
@@ -44,13 +48,17 @@ const layout = createSlice({
     },
     checkItem: (state, action) => {
       state.checkAll = false;
-      state.items = state.items.map((e) => {
-        if (e.id === action.payload) {
-          e.checked = !e.checked;
-        }
 
-        return e;
-      });
+      const findedIndex = state.items.findIndex(
+        (item) => item.id === action.payload
+      );
+
+      if (findedIndex > -1) {
+        state.items[findedIndex] = {
+          ...state.items[findedIndex],
+          checked: !state.items[findedIndex].checked,
+        };
+      }
     },
     editItem: (state, action) => {
       state.items = state.items.map((element) => {
