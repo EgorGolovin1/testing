@@ -11,7 +11,6 @@ const layout = createSlice({
   initialState: {
     items: [] as ItemProps,
     checkAll: false,
-    editableItem: "" as string,
     isEditItem: { id: "", name: "", address: "" } as ItemProps[number],
   },
   reducers: {
