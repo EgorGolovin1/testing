@@ -1,4 +1,7 @@
-import { createApi } from "@reduxjs/toolkit/query/react";
+import {
+  createApi,
+  defaultSerializeQueryArgs,
+} from "@reduxjs/toolkit/query/react";
 import baseQuery from "../baseQuery";
 
 export const contentApi = createApi({
@@ -6,13 +9,13 @@ export const contentApi = createApi({
   baseQuery: baseQuery,
   endpoints(builder) {
     return {
-      getChunks: builder.query({
-        query(id) {
-          return `chank${id}`;
+      getRepositories: builder.query({
+        query(language) {
+          return `?q=language:${language}&sort=stars&order=desc}`;
         },
       }),
     };
   },
 });
 
-export const { useGetChunksQuery } = contentApi;
+export const { useGetRepositoriesQuery } = contentApi;
