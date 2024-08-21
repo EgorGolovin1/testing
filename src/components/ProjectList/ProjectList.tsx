@@ -11,11 +11,16 @@ const ProjectList = () => {
   const [language, setLanguage] = useState<string>("JavaScript");
   const [sortType, setSortType] = useState(false);
 
+  const [params, setParams] = useState<ParamsProps>({
+    language: language,
+    sort: "stars",
+    order: "desc",
+  });
   const {
     currentData: projects,
     isLoading,
     isError,
-  } = useGetRepositoriesQuery(language);
+  } = useGetRepositoriesQuery(JSON.stringify(params));
 
   const changeLanguageAction = () => {
     setLanguage((prev) =>
@@ -34,7 +39,11 @@ const ProjectList = () => {
       const data = projects.items as ProjectProps[];
       setItems(data);
     }
-  }, [isLoading, language, projects, sortType]);
+  }, [isLoading, projects]);
+
+  useEffect(() => {
+    setParams((prev) => ({ ...prev, language: language }));
+  }, [language]);
 
   if (isLoading) {
     return <Loader />;
@@ -42,7 +51,9 @@ const ProjectList = () => {
 
   if (isError) {
     return (
-      <div>Ошибка получения данных. Проверьте соединение с интернетом.</div>
+      <>
+        <div>Ошибка получения данных. Проверьте соединение с интернетом.</div>
+      </>
     );
   }
 
@@ -55,7 +66,7 @@ const ProjectList = () => {
           onChange={changeOrderAction}
           checked={sortType}
           id="sort"
-          description={`С ${sortType ? "конца" : "начала"} списка`}
+          description={`Изменить порядок сортировки`}
         />
       </div>
       <ul className={cn(css.list, sortType && css.reverse)}>
